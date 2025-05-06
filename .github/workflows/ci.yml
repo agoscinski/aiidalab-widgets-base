@@ -129,6 +129,9 @@ jobs:
             # See https://github.com/astral-sh/uv/issues/1928#issuecomment-1968857514
               run: uv pip install --compile -e .[dev,smiles,optimade,eln] aiida-core==${{ matrix.aiida-core-version }}
 
+            - name: Setup upterm session
+              uses: lhotari/action-upterm@v1
+
             - name: Run pytest
               run: pytest -s tests --cov=aiidalab_widgets_base
 
